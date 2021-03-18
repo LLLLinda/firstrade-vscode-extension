@@ -1,14 +1,14 @@
 import * as vscode from 'vscode';
 import Firstrade = require('firstrade-cli');
 import { commandId, configKey } from './const';
-import FirstradeTicker from "./firstrade-ticker";
+import FirstradeMonitor from "./firstrade-monitor";
 
 export class StatusBarItem {
     #ui!: vscode.StatusBarItem
     #balance: Firstrade.Balance | undefined
 
     initUi() {
-        const alignment: "Left" | "Right" = FirstradeTicker.getConfig(configKey.alignment);
+        const alignment: "Left" | "Right" = FirstradeMonitor.getConfig(configKey.alignment);
         if (this.#ui)
             this.#ui.dispose()
         this.#ui = vscode.window.createStatusBarItem(
@@ -20,11 +20,11 @@ export class StatusBarItem {
     }
 
     async updateBalance() {
-        const scrollSpeedInSecond = FirstradeTicker.getConfig(configKey.scrollSpeed);
-        this.#balance = await FirstradeTicker.fetchBalance()
+        const scrollSpeedInSecond = FirstradeMonitor.getConfig(configKey.scrollSpeed);
+        this.#balance = await FirstradeMonitor.fetchBalance()
         if (!!this.#balance)
             this.#displayBalance()
-        await FirstradeTicker.sleep(scrollSpeedInSecond * 1000)
+        await FirstradeMonitor.sleep(scrollSpeedInSecond * 1000)
     }
 
     displayConnecting = () => {

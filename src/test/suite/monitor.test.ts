@@ -5,9 +5,9 @@ import { before, after } from 'mocha';
 // as well as import your extension to test it
 import * as vscode from 'vscode';
 import { storageKey } from '../../lib/const';
-import FirstradeTicker from '../../lib/firstrade-ticker';
+import FirstradeMonitor from '../../lib/firstrade-monitor';
 
-suite('Firstrade Ticker Test Suite', () => {
+suite('Firstrade Monitor Test Suite', () => {
 	before(() => {
 		vscode.window.showInformationMessage('Start tests.');
 		init();
@@ -19,7 +19,7 @@ suite('Firstrade Ticker Test Suite', () => {
 	});
 
 	test("should login", async () => {
-		await FirstradeTicker.login();
+		await FirstradeMonitor.login();
 		const showInputBox = vscode.window.showInformationMessage('Should Login: Should Display Login Input Box', 'Pass', 'Failed');
 		const showConnecting = vscode.window.showInformationMessage('Should Login: Should Display Connect Status at Bottom Bar', 'Pass', 'Failed');
 		const showBalance = vscode.window.showInformationMessage('Should Login: Should Display Balance at Bottom Bar', 'Pass', 'Failed');
@@ -29,12 +29,12 @@ suite('Firstrade Ticker Test Suite', () => {
 
 
 	test("should return balance", async () => {
-		const balance = await FirstradeTicker.fetchBalance()
+		const balance = await FirstradeMonitor.fetchBalance()
 		assert.ok(balance)
 	}).timeout(99 * 1000)
 
 	test("should logout", async () => {
-		FirstradeTicker.logout()
+		FirstradeMonitor.logout()
 		const showDisconnect = vscode.window.showInformationMessage('Should Logout: Should Display Disconnect State at Bottom Bar', 'Pass', 'Failed')
 		assert(await matchCondition('Pass', showDisconnect))
 	}).timeout(99999 * 1000)
@@ -50,6 +50,6 @@ async function matchCondition(matchStr: string, ...showInputBox: Thenable<string
 }
 
 function init() {
-	FirstradeTicker.extensionContext.globalState.update(storageKey.loginCache, null);
+	FirstradeMonitor.extensionContext.globalState.update(storageKey.loginCache, null);
 }
 

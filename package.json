@@ -1,9 +1,10 @@
 {
-	"name": "firstrade-ticker",
-	"displayName": "Firstrade Ticker",
+	"name": "firstrade-monitor",
+	"displayName": "Firstrade Monitor",
 	"publisher": "linda-cheung",
 	"description": "The unofficial Firstrade taking care of you!",
-	"version": "0.0.1",
+	"version": "0.3.0",
+	"icon": "resources/image/icon.png",
 	"engines": {
 		"vscode": "^1.54.0"
 	},
@@ -14,6 +15,10 @@
 		"onStartupFinished"
 	],
 	"main": "./out/extension.js",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/LLLLinda/firstrade-vscode-extension.git"
+	},
 	"contributes": {
 		"configuration": [
 			{
