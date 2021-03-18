@@ -3,7 +3,7 @@
 	"displayName": "Firstrade Monitor",
 	"publisher": "linda-cheung",
 	"description": "The unofficial Firstrade taking care of you!",
-	"version": "0.3.0",
+	"version": "0.3.1",
 	"icon": "resources/image/icon.png",
 	"engines": {
 		"vscode": "^1.54.0"

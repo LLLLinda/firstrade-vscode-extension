@@ -27,9 +27,10 @@ namespace FirstradeMonitor {
 			if (!!sessionTime) {
 				extensionContext.globalState.update(storageKey.loginCache, undefined);
 				vscode.window.showInformationMessage(`Failed to Login Firstrade. Retrying...${!!numOfRetry ? `(${numOfRetry})` : ""}`);
-				return;
+				continue
 			}
 			extensionContext.globalState.update(storageKey.loginCache, ret);
+			break
 		}
 	};
 

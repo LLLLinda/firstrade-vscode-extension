@@ -28,6 +28,10 @@ One can change the display location by using :
 
 ## Release Notes
 
+## 0.3.1
+
+bugs fixed
+
 ### 0.3.0
 
 Initial release
