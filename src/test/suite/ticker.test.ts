@@ -9,7 +9,7 @@ import FirstradeTicker from '../../lib/firstrade-ticker';
 
 suite('Firstrade Ticker Test Suite', () => {
 	before(() => {
-		vscode.window.showInformationMessage('Start all tests.');
+		vscode.window.showInformationMessage('Start tests.');
 		init();
 	});
 
@@ -25,6 +25,18 @@ suite('Firstrade Ticker Test Suite', () => {
 		const showBalance = vscode.window.showInformationMessage('Should Login: Should Display Balance at Bottom Bar', 'Pass', 'Failed');
 
 		assert(await matchCondition('Pass', showInputBox, showBalance, showConnecting))
+	}).timeout(99999 * 1000)
+
+
+	test("should return balance", async () => {
+		const balance = await FirstradeTicker.fetchBalance()
+		assert.ok(balance)
+	}).timeout(99 * 1000)
+
+	test("should logout", async () => {
+		FirstradeTicker.logout()
+		const showDisconnect = vscode.window.showInformationMessage('Should Logout: Should Display Disconnect State at Bottom Bar', 'Pass', 'Failed')
+		assert(await matchCondition('Pass', showDisconnect))
 	}).timeout(99999 * 1000)
 
 });

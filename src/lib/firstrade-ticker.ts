@@ -35,6 +35,7 @@ namespace FirstradeTicker {
 
 	export const logout = () => {
 		extensionContext.globalState.update(storageKey.loginCache, undefined);
+		statusBarItem.displayDisconnected()
 		vscode.window.showInformationMessage(`Logged Out.`);
 	}
 

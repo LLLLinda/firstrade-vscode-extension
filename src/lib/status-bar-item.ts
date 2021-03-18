@@ -33,6 +33,7 @@ export class StatusBarItem {
             return
         this.#ui.text = "$(sync~spin)"
         this.#ui.tooltip = str;
+        this.#ui.command = undefined
     }
 
     displayDisconnected = () => {
