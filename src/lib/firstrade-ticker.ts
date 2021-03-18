@@ -5,7 +5,7 @@ import { storageKey } from './const';
 import { StatusBarItem } from './status-bar-item';
 
 
-namespace FirstradeExtension {
+namespace FirstradeTicker {
 	export let extensionContext!: vscode.ExtensionContext;
 	export const statusBarItem = new StatusBarItem();
 	export const login = async () => {
@@ -78,4 +78,4 @@ namespace FirstradeExtension {
 }
 
 
-export default FirstradeExtension;
+export default FirstradeTicker;

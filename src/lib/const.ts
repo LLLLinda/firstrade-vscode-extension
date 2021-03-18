@@ -6,6 +6,7 @@ const storageKey = {
     loginCache: "firstrade.login.cache"
 };
 const configKey = {
-    scrollSpeed: "scrollSpeed"
+    scrollSpeed: "scrollSpeed",
+    alignment: "alignment"
 }
 export { commandId, storageKey, configKey }

@@ -1,8 +1,8 @@
 {
-	"name": "firstrade-wallet",
-	"displayName": "Firstrade Wallet",
+	"name": "firstrade-ticker",
+	"displayName": "Firstrade Ticker",
 	"publisher": "linda-cheung",
-	"description": "",
+	"description": "The unofficial Firstrade taking care of you!",
 	"version": "0.0.1",
 	"engines": {
 		"vscode": "^1.54.0"
@@ -19,9 +19,18 @@
 			{
 				"title": "Firstrade",
 				"properties": {
+					"firstrade.alignment": {
+						"type": "string",
+						"description": "Ticker Alignment",
+						"default": "left",
+						"enum": [
+							"Left",
+							"Right"
+						]
+					},
 					"firstrade.scrollSpeed": {
 						"type": "integer",
-						"description": "Pick scroll speed in seconds",
+						"description": "Ticker Scroll Speed in seconds",
 						"default": 5,
 						"enum": [
 							5,
